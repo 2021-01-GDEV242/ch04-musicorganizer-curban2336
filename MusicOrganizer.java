@@ -186,4 +186,19 @@ public class MusicOrganizer
             player.playSample(tracks.get(index).getFilename());
         }
     }
+    
+    /**
+     * Plays through each of the audio files. Each one selected at random.
+     */
+    public void randomPlaythrough()
+    {
+        int n=4;
+        while(tracks.size() > 0) {
+            int index = randomGenerator.nextInt(n);
+            player.playSample(tracks.get(index).getFilename());
+            tracks.remove(index);
+            n--;
+        }
+        readLibrary("../audio");
+    }
 }
